@@ -2,12 +2,14 @@
 
 const express = require("express");
 const { NotFoundError } = require("./expressError");
-
-const app = express();
-
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const imagesRoute = require("./routes/images");
 
+const app = express();
+app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
 
 app.use("/images", imagesRoute);
 

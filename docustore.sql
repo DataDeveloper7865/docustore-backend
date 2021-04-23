@@ -11,16 +11,16 @@ CREATE TABLE images (
   location TEXT NOT NULL);
 
 INSERT INTO images (name, location) VALUES
-  ('cat_1', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_1.jpg'),
-  ('cat_2', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_2.jpg'),
-  ('cat_3', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_3.jpg'),
-  ('cat_4', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_4.jpg'),
-  ('cat_5', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_5.jpg'),
-  ('cat_6', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_6.jpg'),
-  ('cat_7', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_7.jpg'),
-  ('cat_8', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_8.jpg'),
-  ('cat_9', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_9.jpg'),
-  ('cat_10', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_10.jpg');
+  ('cat_1', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_1.jpg'),
+  ('cat_2', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_2.jpg'),
+  ('cat_3', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_3.jpg'),
+  ('cat_4', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_4.jpg'),
+  ('cat_5', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_5.jpg'),
+  ('cat_6', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_6.jpg'),
+  ('cat_7', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_7.jpg'),
+  ('cat_8', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_8.jpg'),
+  ('cat_9', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_9.jpg'),
+  ('cat_10', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_10.jpg');
 
 \echo 'Delete and recreate docustore_test db?'
 \prompt 'Return for yes or control-C to cancel > ' foo
@@ -35,13 +35,13 @@ CREATE TABLE images (
   location TEXT NOT NULL);
 
 INSERT INTO images (name, location) VALUES
-  ('cat_1', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_1.jpg'),
-  ('cat_2', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_2.jpg'),
-  ('cat_3', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_3.jpg'),
-  ('cat_4', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_4.jpg'),
-  ('cat_5', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_5.jpg'),
-  ('cat_6', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_6.jpg'),
-  ('cat_7', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_7.jpg'),
-  ('cat_8', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_8.jpg'),
-  ('cat_9', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_9.jpg'),
-  ('cat_10', 'C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/cat_10.jpg');
+  ('cat_1', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_1.jpg'),
+  ('cat_2', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_2.jpg'),
+  ('cat_3', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_3.jpg'),
+  ('cat_4', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_4.jpg'),
+  ('cat_5', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_5.jpg'),
+  ('cat_6', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_6.jpg'),
+  ('cat_7', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_7.jpg'),
+  ('cat_8', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_8.jpg'),
+  ('cat_9', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_9.jpg'),
+  ('cat_10', 'https://docustore-bucket.s3.us-east-2.amazonaws.com/cat_10.jpg');

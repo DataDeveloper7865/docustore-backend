@@ -1,15 +1,41 @@
 const express = require("express");
+const aws = require("aws-sdk");
+const multer = require("multer");
+const multerS3 = require("multer-s3");
+const shortid = require("shortid");
+require("dotenv").config();
 
 const db = require("../db");
 const router = new express.Router();
 
-//to be removed in production
-const BASE_FILE_URL = "C:/Users/19258/Desktop/Code/RithmSchool/week-10/docustore/backend/local_file_store/";
-
 const { NotFoundError, BadRequestError } = require("../expressError");
 
-/** GET /images get list of images*/ 
+aws.config.update({
+    secretAccessKey: process.env.SECRET_ACCESS_KEY,
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    region: process.env.S3_REGION
+});
+
+const s3 = new aws.S3();
+
+var upload = multer({
+    storage: multerS3({
+      s3: s3,
+      acl: "public-read",
+      bucket: 'docustore-bucket',
+    //   metadata: function(req, file, cb) {
+    //     cb(null, { fieldName: file.fieldname})
+    //   },
+      key: function(req, file, cb) {
+        console.log(file);
+        cb(null, file.originalname);
+      }
+    })
+  });
+
+/** GET /images get list of images*/
 router.get("/", async function (req, res, next) {
+    console.log("WE IN GET ROUTE YO!!!!!!")
 
     const results = await db.query(
         `SELECT id, name, location from images`
@@ -18,14 +44,24 @@ router.get("/", async function (req, res, next) {
     return res.json({images: images});
 });
 
-router.post("/", async function (req, res, next) {
+//INSERT NAME INTO DB
+router.post("/", upload.array('upl', 1), async function (req, res, next) {
+
+    console.log("YOU HIT THE POST ENDPOINT FOR DB INSERTION!")
+    
     const {name} = req.body;
+
+    let s3ImageLocation = process.env.S3_BASE_URL + name + ".jpg"
+
+    res.send('uploaded!')
 
     const results = await db.query(
         `INSERT INTO images (name, location)
             values ($1, $2)
-            RETURNING id, name, location`, [name, BASE_FILE_URL+name+".jpg"]
+            RETURNING id, name, location`, [name, s3ImageLocation]
     )
+
+    console.log("THE URL IMAGE WAS SENT TO: ", s3ImageLocation)
 
     const image = results.rows[0];
     if (!image) {
@@ -36,6 +72,11 @@ router.post("/", async function (req, res, next) {
     return res.json({image});
 });
 
+//INSERT IMAGE INTO S3
+router.post("/images-upl", upload.array('upl', 1), async function (req, res, next) {
+    console.log("YOU HIT THE POST ENDPOINT FOR S3 UPLOAD!")
+    res.send('uploaded!')
+});
 
 router.get("/:id", async function (req, res, next) {
 
